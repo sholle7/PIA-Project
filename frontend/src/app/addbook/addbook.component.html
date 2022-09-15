@@ -1,0 +1,75 @@
+<div class="center">
+    <h1 *ngIf="user.type!='citalac'">Forma za dodavanje knjige</h1>
+    <h1 *ngIf="user.type=='citalac'">Forma za dodavanje zahteva za knjige</h1>
+<table>
+        <tr>
+            <td><b>Naziv:</b></td>
+            <td>               
+                <input type="text" size="40" [(ngModel)]="name"> 
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Izdavac:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="publisher">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Godina:</b></td>
+            <td>
+                <input type="number" [(ngModel)]="year">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Jezik:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="language">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Slika:</b></td>
+            <td>
+                <input type="file" accept="image/*" (change)="saveImage($event)">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Zanrovi:</b></td>
+            <td>
+                <select multiple [(ngModel)]="genres">
+                    <option *ngFor="let g of allGenres" [value]="g">
+                      {{g}}
+                    </option>
+                </select>
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Autori:</b></td>
+            <td>
+                <input type="text" size="40" placeholder="Unesite autore odvojene zarezom bez razmaka" [(ngModel)]="author">
+            </td>        
+        </tr>
+    
+        <tr>
+            <td><b *ngIf="user.type !='citalac'">Kolicina:</b></td>
+            <td>
+                <input type="number" *ngIf="user.type !='citalac'" [(ngModel)]="amount"> 
+            </td>        
+        </tr>
+        
+        <tr>
+            
+            <td colspan="1" align="center">
+                <button  (click)="addBook()" class="button">Dodaj</button>
+            </td>       
+            <td colspan="1" align="center">
+                <button  (click)="back()" class="button">Nazad</button>
+            </td>    
+        </tr>
+    </table>
+    
+</div>
+
+<simple-notifications></simple-notifications>
+
+
+

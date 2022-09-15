@@ -1,0 +1,32 @@
+<div class="center">
+  <div class="typing">
+    <div class="typing-effect">
+      Top 3 knjige
+    </div>
+</div>
+</div>
+
+<div *ngIf="isLoaded">
+ <ngb-carousel *ngIf="images">
+    <ng-template ngbSlide >
+      <div class="picsum-img-wrapper">
+        <img *ngIf="images[0].coverPicture!=''" [src]="images[0]" height="400" width="400" title="{{top3Books[0].name}}">
+        <img *ngIf="images[0].coverPicture==''" src="/assets/DefaultBook.png" height="400" width="400" title="{{top3Books[0].name}}">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img *ngIf="images[1].coverPicture!=''" [src]="images[1]" height="400" width="400" title="{{top3Books[1].name}}">
+        <img *ngIf="images[1].coverPicture==''" src="/assets/DefaultBook.png" height="400" width="400" title="{{top3Books[1].name}}">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img *ngIf="images[2].coverPicture!=''" [src]="images[2]" height="400" width="400" title="{{top3Books[2].name}}">
+        <img *ngIf="images[2].coverPicture==''" src="/assets/DefaultBook.png" height="400" width="400" title="{{top3Books[2].name}}">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+ 
+</div>

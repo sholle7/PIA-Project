@@ -1,0 +1,64 @@
+<div *ngIf="allRentedBooksInThePast.length>0; else noRentedBooks">
+    <div class="center">
+        <div class="table-responsive">
+            <div id="table-wrapper">
+                <div id="table-scroll">
+                    <table class="table table-striped" style="text-align: center;" >
+                            <thead>
+                                <tr>                                  
+                                    <th *ngIf="flagName == false"><button class="borderless" (click)="sortByName()"><b>Naziv <i class="arrow down" *ngIf="currentlySorted=='name'"></i></b></button></th>   
+                                    <th *ngIf="flagName == true"><button class="borderless" (click)="sortByName()"><b>Naziv <i class="arrow up" *ngIf="currentlySorted=='name'"></i></b></button></th>       
+
+                                    <th *ngIf="flagAuthors == false"><button class="borderless" (click)="sortByAuthors()"><b>Autori <i class="arrow down" *ngIf="currentlySorted=='authors'"></i></b></button></th>
+                                    <th *ngIf="flagAuthors == true"><button class="borderless" (click)="sortByAuthors()"><b>Autori <i class="arrow up" *ngIf="currentlySorted=='authors'"></i></b></button></th>
+                                    
+
+                                    <th *ngIf="flagStartDate == false"><button class="borderless" (click)="sortByStartDate()"><b>Zaduzen <i class="arrow down" *ngIf="currentlySorted=='startDate'"></i></b></button></th>
+                                    <th *ngIf="flagStartDate == true"><button class="borderless" (click)="sortByStartDate()"><b>Zaduzen <i class="arrow up" *ngIf="currentlySorted=='startDate'"></i></b></button></th>
+
+                                    <th *ngIf="flagReturnDate == false"><button class="borderless" (click)="sortByReturnDate()"><b>Vracen <i class="arrow down" *ngIf="currentlySorted=='returnDate'"></i></b></button></th>
+                                    <th *ngIf="flagReturnDate == true"><button class="borderless" (click)="sortByReturnDate()"><b>Vracen<i class="arrow up" *ngIf="currentlySorted=='returnDate'"></i></b></button></th>
+                                    
+                                    <th style="font-size: 18px; color: black;"><b>Detalji o knjizi</b></th>           
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let b of allRentedBooksInThePast'>
+                                        
+                                    <td>{{b.name}}</td>  
+                                    <td>{{b.authors}}</td>     
+                                    <td style="text-align: center;">{{b.startDate}}</td>  
+                                    <td style="text-align: center;">{{b.returnDate}}</td>
+                                    <td align="center">
+                                        <button class="button" (click)="bookDetails(b)">Detalji</button>
+                                    </td>   
+                                </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+            <table>
+                <tr>
+                    <td>                 
+                        <button class="button" (click)="back()">Nazad</button>
+                    </td>
+                </tr>
+            </table>
+    </div>
+</div>
+<ng-template #noRentedBooks>
+    <div style="margin-top: 5%" align="center">
+        <h1>Korisnik nije zaduzuo nijednu knjigu!</h1>
+        <table>
+            <tr>
+                <td>                 
+                    <button class="button" (click)="back()">Nazad</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ng-template>
+
+<simple-notifications></simple-notifications>

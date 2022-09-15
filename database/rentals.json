@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "62e98c02db4a45f6ae21d246"
+  },
+  "id": 1,
+  "idB": 1,
+  "username": "luka",
+  "startDate": "2022-08-10",
+  "endDate": "2022-09-07",
+  "active": true,
+  "returnDate": null,
+  "hasExtended": true
+},{
+  "_id": {
+    "$oid": "62e9b184db4a45f6ae21d2c8"
+  },
+  "id": 2,
+  "idB": 3,
+  "username": "luka",
+  "startDate": "2022-06-01",
+  "endDate": "2022-06-15",
+  "active": false,
+  "returnDate": "2022-06-06",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62e9b1a1db4a45f6ae21d2ca"
+  },
+  "id": 3,
+  "idB": 2,
+  "username": "luka",
+  "startDate": "2021-09-04",
+  "endDate": "2021-09-18",
+  "active": false,
+  "returnDate": "2021-09-05",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62e9b72edb4a45f6ae21d2de"
+  },
+  "id": 4,
+  "idB": 2,
+  "username": "luka",
+  "startDate": "2022-07-03",
+  "endDate": "2022-07-17",
+  "active": false,
+  "returnDate": "2022-07-04",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62ed10492adbb5a99dfd6fb9"
+  },
+  "id": 5,
+  "idB": 4,
+  "username": "luka",
+  "startDate": "2022-07-05",
+  "endDate": "2022-07-19",
+  "active": false,
+  "returnDate": "2022-07-08",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62eed37cc3580bb52b982441"
+  },
+  "id": 6,
+  "idB": 5,
+  "username": "luka",
+  "startDate": "2021-12-04",
+  "endDate": "2021-12-18",
+  "active": false,
+  "returnDate": "2021-12-18",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62f124bfc856feb2c2aea28a"
+  },
+  "id": 7,
+  "idB": 5,
+  "username": "luka",
+  "startDate": "2022-08-02",
+  "endDate": "2022-08-30",
+  "active": true,
+  "returnDate": null,
+  "hasExtended": true
+},{
+  "_id": {
+    "$oid": "62f124cf7d55c59b3aeb7f11"
+  },
+  "id": 8,
+  "idB": 4,
+  "username": "luka",
+  "startDate": "2022-08-21",
+  "endDate": "2022-09-04",
+  "active": true,
+  "returnDate": null,
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62f128117d55c59b3aeb7f63"
+  },
+  "id": 9,
+  "idB": 4,
+  "username": "luka",
+  "startDate": "2022-08-01",
+  "endDate": "2022-08-15",
+  "active": false,
+  "returnDate": "2022-08-01",
+  "hasExtended": false
+},{
+  "_id": {
+    "$oid": "62f589b0424dff2449fe174e"
+  },
+  "id": 10,
+  "idB": 6,
+  "username": "isidora",
+  "startDate": "2022-08-12",
+  "endDate": "2022-09-09",
+  "active": false,
+  "returnDate": "2022-08-12",
+  "hasExtended": true
+},{
+  "_id": {
+    "$oid": "62f58ae9424dff2449fe17c4"
+  },
+  "id": 11,
+  "idB": 1,
+  "username": "isidora",
+  "startDate": "2022-08-12",
+  "endDate": "2022-09-09",
+  "active": false,
+  "returnDate": "2022-08-12",
+  "hasExtended": true
+},{
+  "_id": {
+    "$oid": "62f58b04424dff2449fe17e1"
+  },
+  "id": 12,
+  "idB": 2,
+  "username": "isidora",
+  "startDate": "2022-08-12",
+  "endDate": "2022-09-09",
+  "active": false,
+  "returnDate": "2022-08-12",
+  "hasExtended": true
+}]

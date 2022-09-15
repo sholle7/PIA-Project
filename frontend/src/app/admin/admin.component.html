@@ -1,0 +1,165 @@
+<div class="center">
+    <h1>Sve knjige</h1>
+    <div class="table-responsive">
+        <div id="table-wrapper">
+            <div id="table-scroll">
+            
+                <table class="table table-striped" style="text-align:center;">   
+                    <thead>    
+                    <tr>
+                        <th>Slika</th>
+                        <th>Naziv</th>
+                        <th>Izdavac</th>
+                        <th>Godina</th>
+                        <th>Jezik</th>
+                        <th>Autori</th>
+                        <th>Zanrovi</th>
+                        <th>Azuriraj knjigu</th>
+                        <th>Obrisi knjigu</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let b of allBooks'>
+                        
+                        <td>
+                            <img *ngIf="hasDefaultPictureBook(b)==true" src="/assets/DefaultBook.png" width="100px" height="100px">
+                            <img *ngIf="hasDefaultPictureBook(b)==false" src={{b.coverPicture}} width="100px" height="100px">
+                        </td>
+                        <td>
+                            {{b.name}}
+                        </td>
+                        <td>
+                            {{b.publisher}}
+                        </td>
+                        <td>
+                            {{b.year}}
+                        </td>
+                        <td>
+                            {{b.language}}
+                        </td>
+                        <td>
+                            {{b.authors}}
+                        </td>
+                        <td>
+                            {{b.genres}}
+                        </td>
+                        <td>
+                            <button class="button" (click)="updateBook(b)">Azuriraj</button>
+                        </td>
+                        <td>
+                            <button class="button" (click)="deleteBook(b)">Obrisi</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <h1>Svi korisnici</h1>
+    <div class="table-responsive">
+    <div id="table-wrapper">
+        <div id="table-scroll">
+            <table class="table table-striped" style="text-align:center;font-size: 14px;">     
+                <thead>  
+                    <tr>
+                        <th>Slika</th>
+                        <th>Korisnicko ime</th>
+                        <th>Ime i prezime</th>
+                        <th>Adresa</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Status</th>
+                        <th>Tip</th>
+                        <th>Prihvati korisnika</th>
+                        <th>Odbij korisnika</th>
+                        <th>Podigni privilegije</th>
+                        <th>Spusti privilegije</th>
+                        <th>Blokiraj korisnika</th>
+                        <th>Odblokiraj korisnika</th>
+                        <th>Azuriraj korisnika</th>
+                        <th>Obrisi korisnika</th>
+                        
+                        
+                    </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let u of allUsers'>
+                        <td>
+                            <img *ngIf="hasDefaultPictureUser(u)==true" src="/assets/DefaultPicture.png" width="100px" height="100px">
+                            <img *ngIf="hasDefaultPictureUser(u)==false" src={{u.image}} width="100px" height="100px">
+                        </td>
+                        <td>
+                            {{u.username}}
+                        </td>
+                        <td>
+                            {{u.fullName}}
+                        </td>
+                        <td>
+                            {{u.address}}
+                        </td>
+                        <td>
+                            {{u.email}}
+                        </td>
+                        <td>
+                            {{u.telephone}}
+                        </td>
+                        <td>
+                            {{u.status}}
+                        </td>
+                        <td>
+                            {{u.type}}
+                        </td>
+                        <td>
+                            <button *ngIf="u.status=='Neobradjen'" class="button2" (click)="acceptUser(u)">Prihvati</button>
+                        </td>
+                        <td>
+                            <button *ngIf="u.status=='Neobradjen'" class="button2" (click)="rejectUser(u)">Odbij</button>
+                        </td>
+                        <td>
+                            <button *ngIf="u.type=='citalac'" class="button2" (click)="upgradeUser(u)">Unapredi</button>
+                        </td>
+                        <td>
+                            <button *ngIf="u.type =='moderator'" class="button2" (click)="downGradeUser(u)">Spusti</button>
+                        </td>
+                        <td>
+                            <button *ngIf="u.status=='Prihvacen'" class="button2" (click)="blockUser(u)">Blokiraj</button>
+                        </td>
+                        <td>
+                            <button *ngIf="u.status=='Blokiran'" class="button2" (click)="unblockUser(u)">Odblokiraj</button>
+                        </td>       
+                        <td>
+                            <button class="button2" (click)="updateUser(u)">Azuriraj</button>
+                        </td>
+                        <td>
+                            <button class="button2" (click)="deleteUser(u)">Obrisi</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <table>
+         <tr>
+            <td colspan="1" align="center">
+                <div class="row">
+                    <button  (click)='addUser()' class="button">Dodaj novog korisnika</button>
+                </div>
+            </td>
+            <td colspan="1" align="center">
+                <div class="row">
+                    <button (click)='addBook()' class="button">Dodaj novu knjigu</button>
+                </div>
+            </td>
+            <td colspan="1" align="center">
+                <div class="row">
+                    <button (click)='changeRentDays()' class="button">Napredne opcije</button>
+                </div>
+            </td>
+        </tr>
+    </table> 
+</div>
+
+<simple-notifications></simple-notifications>

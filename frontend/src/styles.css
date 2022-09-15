@@ -1,0 +1,125 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://www.kryogenix.org/code/browser/sorttable/sorttable.js");
+
+html{
+    user-select: none;
+}
+
+@font-face {
+    src: url("fonts/Roboto-Regular.ttf");
+    font-family: Roboto-Regular;
+}
+
+body{
+    background-color: rgb(135, 235, 185);
+    /* background: linear-gradient(45deg, rgb(135, 235, 185), rgb(0, 255, 100)); */
+    margin: 0px !important;
+    padding: 0px !important;
+    font-family: Roboto-Regular;
+    width: 100% !important;
+    height: 100% !important;   
+}
+
+.button:hover {
+    text-decoration: underline !important;
+}
+
+.button2:hover {
+    text-decoration: underline !important;
+}
+  
+
+table {
+    table-layout: auto !important;
+}  
+
+a{
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a7a7e7;
+} 
+
+
+@media (max-width:600px){
+    :not(h1, h2){
+        font-size:14px !important ;
+    }
+
+    h1{
+        font-size: 28px !important;
+    }
+
+    h2{
+        font-size: 24px !important; 
+    }
+
+    .graphs{
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .links .left button{
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+        border-radius: 6zpx !important;
+        margin: 10px !important;
+    }
+
+    .footer{
+        font-size: 12px !important;
+    }
+
+    .image{
+        width: 60px !important; 
+        height: 60px !important;   
+        margin-top: -10px !important;     
+    }
+}
+
+@media (max-width:1000px) and (min-width: 600px) {  
+    :not(h1, h2){
+        font-size:16px !important;
+    }
+
+    h1{
+        font-size: 36px !important;
+    }
+
+    h2{
+        font-size: 32px !important;
+    }
+    
+    .graphs{
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .links .left button{
+        padding: 10px 12px !important;
+        font-size: 14px !important;
+        border-radius: 8px !important;
+        margin: 10px !important;
+    }
+    
+    .footer{
+        font-size: 14px !important;
+    }
+
+    .image{
+        width: 80px !important; 
+        height: 80px !important;   
+        margin-top: -15px !important;     
+    }
+}
+

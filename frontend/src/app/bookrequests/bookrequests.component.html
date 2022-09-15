@@ -1,0 +1,67 @@
+<div *ngIf="isLoaded">
+    <div *ngIf="allActiveBookRequests.length>0; else noRequests">
+        <div class="table-responsive">      
+                <div id="table-wrapper">
+                    <div id="table-scroll">
+                        <table class="table table-striped"style="text-align: center;">
+                            <tr>
+                                <th>Slika</th>
+                                <th>Naziv</th>   
+                                <th>Izdavac</th>
+                                <th>Godina</th>
+                                <th>Jezik</th>        
+                                <th>Autori</th>
+                                <th>Zanrovi</th>
+                                <th>Korisnik</th>
+                                <th>Prihvati</th>
+                                <th>Odbij</th>
+                                
+                            </tr>
+                            <tr *ngFor='let b of allActiveBookRequests'>
+                                <td>
+                                    <img *ngIf="hasDefaultPicture(b)==true" src="/assets/DefaultBook.png" width="100px" height="100px">
+                                    <img *ngIf="hasDefaultPicture(b)==false" src={{b.coverPicture}} width="100px" height="100px">
+                                </td>         
+                                <td>{{b.name}}</td>  
+                                <td>{{b.publisher}}</td>
+                                <td>{{b.year}}</td>
+                                <td>{{b.language}}</td>
+                                <td>{{b.authors}}</td>  
+                                <td>{{b.genres}}</td>   
+                                <td>{{b.username}}</td>      
+                                <td>                 
+                                    <button class="button" (click)="acceptBookRequest(b)">Prihvati</button>
+                                </td>
+                                <td>                 
+                                    <button class="button" (click)="rejectBookRequest(b)">Odbij</button>
+                                </td>                                                                            
+                            </tr>
+                        </table>
+                    </div>
+                </div>      
+        </div>
+
+        <table style="margin-top: 2%; margin-bottom: 2%;">
+            <tr>
+                <td colspan="1"  align="center">                 
+                    <button class="button" (click)="back()">Nazad</button>
+                </td>
+            </tr>
+        </table>    
+    </div>
+    
+    <ng-template #noRequests>
+        <div align="center">
+            <h1>Nema zahteva za dodavanje knjige!</h1>
+            <table style="margin-top: 2%; margin-bottom: 2%;">
+                <tr>
+                    <td colspan="1"  align="center">                 
+                        <button class="button" (click)="back()">Nazad</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </ng-template>
+</div>
+
+<simple-notifications></simple-notifications>

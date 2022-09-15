@@ -1,0 +1,148 @@
+ <div *ngIf="user && user.status!='Blokiran'" class="r" style="text-align: center;">
+    <div class="c">
+        <div class="center">
+            <h1>Osnovna pretraga</h1>
+            <table>
+                <tr>
+                    <td><b>Naziv:</b></td>
+                    <td>
+                        <input type="text" [(ngModel)]="nameSearchParam">
+                    </td>
+                </tr>       
+                <tr>
+                    <td><b>Autor:</b></td>
+                    <td>
+                        <input type="text" [(ngModel)]="authorSearchParam">
+                    </td>
+                </tr>
+            </table>   
+        </div>
+    </div>
+    <div class="c">
+        <div class="center">
+        <h1>Napredna pretraga</h1>
+            <table style="text-align: left;">
+                <tr>
+                    <td><b>Zanr:</b></td>
+                    <td align="right">
+                        <select multiple [(ngModel)]="genresSearchParam">
+                            <option *ngFor="let g of allGenres" [value]="g">
+                            {{g}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Godina od:</b></td>
+                    <td>
+                        <input type="number" [(ngModel)]="yearFromSearchParam">
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Godina do:</b></td>
+                    <td>
+                        <input type="number" [(ngModel)]="yearToSearchParam">
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Izdavac:</b></td>
+                    <td>
+                        <input type="text" [(ngModel)]="publisherSearchParam">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!user || user.status=='Blokiran'" class="r" style="text-align: center;">
+    <div class="center">
+        <h1>Osnovna pretraga</h1>
+        <table>
+            <tr>
+                <td><b>Naziv:</b></td>
+                <td>
+                    <input type="text" [(ngModel)]="nameSearchParam">
+                </td>
+            </tr>       
+            <tr>
+                <td><b>Autor:</b></td>
+                <td>
+                    <input type="text" [(ngModel)]="authorSearchParam">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="center">
+    <div class="table-responsive">
+    <div id="table-wrapper">
+        <div id="table-scroll">
+            <table *ngIf="searchedBooks.length>0;else noSearchedBooks" class="table table-striped" style="text-align: center;">
+                <thead>
+                <tr>
+                    <th>Slika</th>
+                    <th>Naziv</th>
+                    <th>Izdavac</th>
+                    <th>Godina</th>
+                    <th>Jezik</th>
+                    <th>Autori</th>
+                    <th>Zanrovi</th>
+                    <th>Detalji o knjizi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let b of searchedBooks'>
+                    <td>
+                        <img *ngIf="hasDefaultPicture(b)==true" src="/assets/DefaultBook.png" height="100px">
+                        <img *ngIf="hasDefaultPicture(b)==false" src={{b.coverPicture}} height="100px">
+                    </td>
+                    <td>
+                        {{b.name}}
+                    </td>
+                    <td>
+                        {{b.publisher}}
+                    </td>
+                    <td>
+                        {{b.year}}
+                    </td>
+                    <td>
+                        {{b.language}}
+                    </td>
+                    <td>
+                        {{b.authors}}
+                    </td>
+                    <td>
+                        {{b.genres}}
+                    </td>
+                    <td>
+                        <button class="button" (click)="bookDetails(b)">Detalji</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <td colspan="2" align="center">
+                <div class="row">
+                    <button class="button" (click)="searchBooks()">Pretrazi</button>
+                </div>
+                <div class="row">
+                    <button class="button" (click)="back()">Nazad</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+<ng-template #noSearchedBooks>
+    <div style="margin-top: 2%" *ngIf="hasSearched == true" align="center">
+        <h1>Nema rezultata pretrage!</h1>
+    </div>
+</ng-template>
+
+<simple-notifications></simple-notifications>

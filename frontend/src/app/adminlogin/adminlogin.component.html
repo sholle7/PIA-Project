@@ -1,0 +1,27 @@
+<div class="center">
+    <h1>Admin prijava na sistem</h1>
+    <table>
+        <tr>
+            <td><b>Korisnicko ime:</b></td>
+            <td>
+                <input type='text' [(ngModel)]='username'>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Lozinka:</b></td>
+            <td>
+                <input type='password' [(ngModel)]='password'>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1" align="center">
+                <button (click)='login()' class="button">Prijavi se</button>
+            </td>
+            <td colspan="1" align="center">
+                <button (click)='back()' class="button">Nazad</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<simple-notifications></simple-notifications>

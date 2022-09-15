@@ -1,0 +1,98 @@
+<div class="center" *ngIf="isLoaded">
+    <h1>Osnovne informacije</h1>
+    <table>
+        <tr>
+            <td><b>Korisnicko ime:</b></td>
+            <td>
+                {{user.username}}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Puno ime:</b></td>
+            <td>
+                {{user.fullName}}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Adresa:</b></td>
+            <td>
+                {{user.address}}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Email:</b></td>
+            <td>
+                {{user.email}}
+            </td>
+        </tr>
+        <tr>
+            <td><b>Telefon:</b></td>
+            <td>
+                {{user.telephone}}
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="1" align="center">
+                <button (click)='navigateToChangePersonalInformationsPage()' class="button">Promeni licne podatke</button>
+            </td>
+
+            <td colspan="1" align="center">
+                <button (click)='navigateToChangePasswordPage()' class="button">Promeni lozinku</button>
+            </td>
+            
+            <td colspan="1" align="center">
+                <button (click)='back()' class="button">Nazad</button>
+            </td>
+        </tr>
+    </table>
+    
+    <div *ngIf="user.type !='admin'" class="graphs" style="margin-top: 2% !important;" >
+        <div *ngIf="canShowGraphs(); else noGraphs" style="text-align: center;">
+            <h1>Broj procitanih knjiga </h1>
+            <div class="table-responsive">
+                                
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{firstChartTitle}}</th>
+                        <th>{{secondChartTitle}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <google-chart style="width: 550px; height: 400px;" class="googleChart"
+                            [type]="firstChartType" 
+                            [options]="firstChartOptions"
+                            [data]="firstChartData"                        
+                            >             
+                            </google-chart>
+                        </td>
+
+                        <td align="center">
+                            <google-chart class="googleChart"
+                                [type]="secondChartType"
+                                [data]="secondChartData"
+                                [columnNames]="secondChartColumnNames"
+                                [options]="secondChartOptions"
+                                [width]="secondChartWidth"
+                                [height]="secondChartHeight">
+                            </google-chart>
+                        </td>
+                    
+                    </tr>
+                </tbody>
+                </table>
+            
+            </div>
+        </div>
+        <ng-template #noGraphs>
+            <div style="margin-top: 3%" align="center">
+                <h1>Korisnik nema nijednu procitanu knjigu!</h1>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<simple-notifications></simple-notifications>

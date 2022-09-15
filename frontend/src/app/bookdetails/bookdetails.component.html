@@ -1,0 +1,127 @@
+
+
+<div class="center">
+    <div class="table-responsive">
+    <table class="table table-striped" style="text-align: center;">
+        <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Izdavac</th>
+            <th>Godina</th>
+            <th>Jezik</th>
+            <th>Slika</th>
+           
+            <th>Autori</th>
+            <th>Zanrovi</th>
+            <th>Stanje</th>
+            <th *ngIf="canRent()==true">Zaduzi</th>
+            <th *ngIf="canReserve()==true">Rezervisi</th>
+            <th *ngIf="isModerator()">Izmeni</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            
+            <td>{{book.name}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.year}}</td>
+            <td>{{book.language}}</td>
+
+            <td>
+                <img *ngIf="hasDefaultPicture(book)==true" src="/assets/DefaultBook.png">
+                <img *ngIf="hasDefaultPicture(book)==false" src={{book.coverPicture}}>
+            </td>
+           
+            <td>{{book.authors}}</td>
+            <td>{{book.genres}}</td>
+            <td>{{book.amount}}</td>
+            <td *ngIf="canRent()==true">
+                <button  class="button" (click)="rentABook()">Zaduzi</button>
+            </td>
+            <td *ngIf="canReserve()==true">
+                <button  class="button" (click)="reserveABook()">Rezervisi</button>
+            </td>
+            <td *ngIf="isModerator()">
+                <button  class="button" (click)="changeBookInformations()">Izmeni</button>
+            </td>
+           
+        </tr>
+    </tbody>
+    </table>       
+</div>
+   
+</div>
+
+
+<div>
+
+    <div class="row" *ngIf="allVotesFromUser.length>0">
+        <h2>Prosecna ocena: &nbsp; <u><b style ="font-size:30px;">{{averageGrade}}</b></u></h2>
+    </div>
+
+
+    <div *ngIf="allVotesFromUser.length>0; else noVotes">
+        <div class="table-responsive">
+        <div id="table-wrapper">
+            <div id="table-scroll">
+                
+    
+                <div>
+                    <table class="table table-striped" style="text-align: center;">
+                        <thead>
+                        <tr>
+                            <th>Korisnicko ime</th>
+                            <th>Ocena</th>
+                            <th>Komentar</th>
+                            <th>Datum</th>
+                            <th>Vreme</th>
+                            <th>Izmeni komentar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let v of allVotesFromUser'>
+                    
+                            <td>{{v.username}}</td>
+                            <td [innerHTML]="displayStars(v.rating)" class="star">                            
+                                
+                            </td>
+                            <td [class.red]="v.isUpdated==true">{{v.text}}</td>
+                            <td>{{v.date}}</td>
+                            <td>{{v.time}}</td>
+                            <td>
+                                <button *ngIf="v.username==user.username" class="button" (click)="updateComment(v)">Izmeni</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     </div>
+    </div> 
+</div>
+
+<ng-template #noVotes>
+    <div align="center">
+        <h1>Knjiga nema nijedan glas</h1>
+        
+    </div>
+</ng-template>
+
+
+<div align="center">
+    <table>
+        <tr>
+            <td>                 
+                <button class="button" (click)="navigateToCommentPage()">Ostavi komentar</button>
+            </td>
+            <td>                 
+                <button class="button" (click)="back()">Nazad</button>
+            </td>
+        </tr>
+    </table>
+   
+</div>
+
+
+<simple-notifications></simple-notifications>

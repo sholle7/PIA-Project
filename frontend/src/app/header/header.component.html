@@ -1,0 +1,31 @@
+<div class="links">
+
+    <div class = "left">
+        <button *ngIf="loggedIn() == true" class="button" (click)="returnToHomePage()">Pocetna stranica</button>
+        <div *ngIf="loggedIn() == false">
+            <button class="button" (click) = "navigateToLoginPage()">Login</button> 
+        </div>
+        <div *ngIf="loggedIn() == true" >
+            <button class="button" (click) = "logout()">Logout</button>
+        </div>
+        <div *ngIf="loggedIn() == false">
+            <button class="button" (click) = "navigateToRegisterPage()">Register</button> 
+        </div>
+        <div>
+            <button class="button" (click) = "navigateToSearchBookPage()">Pretrazi</button> 
+         </div>
+    </div>
+
+    <div class="center">
+            <h1 style="font-size: 48px;">Biblioteka</h1>
+            <img class="image" src="/assets/libraryIcon.png" width="100px" height="100px">
+    </div>
+
+    <div class="right">     
+        <div class="last">
+            <img *ngIf="loggedIn()==false" src="/assets/DefaultPicture.png" width="50px" height="50px">    
+            <a *ngIf="hasDefaultPictureAndLoggedin()==true" (click)="navigateToProfilePage()"><img src="/assets/DefaultPicture.png" width="50px" height="50px"></a>
+            <a *ngIf="hasnotDefaultPictureAndLoggedin()==true" (click)="navigateToProfilePage()"><img  src={{user.image}} width="50px" height="50px"></a>
+       </div> 
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div *ngIf="randomBook" class="center">
+    <h1>Knjiga dana</h1>
+    <div class="table-responsive">
+        <table align="center" style="text-align: center;">
+            <tr>
+                <th>Slika</th>
+                <th>Naziv</th>
+                <th>Autor</th>
+                <th>Prosecna Ocena</th>         
+            </tr>
+            <tr>          
+                <td>
+                    <img *ngIf="hasDefaultPicture()==true" src="/assets/DefaultBook.png" height="100px">
+                    <img *ngIf="hasDefaultPicture()==false" src={{randomBook.coverPicture}} height="100px">
+                </td> 
+                <td>{{randomBook.name}}</td>
+                <td>{{randomBook.authors}}</td>
+                <td *ngIf="averageGrade>0" style="text-align: center;">{{averageGrade}}</td>
+                <td *ngIf="averageGrade<=0" style="text-align: center;">/</td>
+            </tr>
+        </table>
+    </div>
+    <hr style="width: 100% ;height:5px;background-color:white; border-radius: 5px; border: 2.5px solid black;">
+    
+    <div class="readersComponentButtons table-responsive">
+        <div>
+        <table>
+            <tr>
+                <td colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Pretrazivanje knjiga: </b></h2> 
+                        <button class="button" (click)="navigateToSearchBookPage()">Pretrazi</button>
+                    </div>
+                </td>
+                <td colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Pregled zaduzenih knjiga: </b></h2>
+                        <button class="button" (click)="navigateToRentedBooksPage()">Pregled</button>
+                    </div>
+                </td>
+                <td colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Istorija zaduzenja: </b></h2>
+                        <button class="button" (click)="navigateToRentHistoryPage()">Istorija</button>
+                    </div>
+                </td>
+                <td *ngIf="user.type=='moderator'" colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Dodaj knjigu: </b></h2>
+                        <button class="button" (click)="navigateToAddBookPage()">Dodaj</button>
+                    </div>
+                </td>
+                <td *ngIf="user.type=='moderator'" colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Pregledaj zahteve za nove knjige: </b></h2>
+                        <button class="button" (click)="navigateToBookRequestsPage()">Pregledaj</button>
+                    </div>
+                </td>
+                <td *ngIf="user.type=='citalac'" colspan="1" align="center">
+                    <div class="row">
+                        <h2><b>Dodaj zahtev za novu knjigu: </b></h2>
+                        <button class="button" (click)="navigateToAddBookPage()">Dodaj</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
+
+<simple-notifications></simple-notifications>
+
+
+
+

@@ -1,0 +1,83 @@
+<div class="center">
+    <div *ngIf="user.type =='admin'" class="info">
+        <p><strong>&nbsp;Info!</strong> Popunite samo polja koja zelite da promenite!&nbsp;</p>
+    </div>
+    <h1>Izmeni informacije o knjizi</h1>
+    <table>
+        <tr>
+            <td><b>Naziv:</b></td>
+            <td>               
+                <input type="text" size="40" [(ngModel)]="name"> 
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Izdavac:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="publisher">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Godina:</b></td>
+            <td>
+                <input type="number" [(ngModel)]="year">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Jezik:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="language">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Slika:</b></td>
+            <td class="pics">
+                    <div *ngIf="user.type=='admin'">
+                        <img *ngIf="hasDefaultPicture(bookForInfoChange)==true" width="50px" height="50px" src="/assets/DefaultBook.png">
+                        <img *ngIf="hasDefaultPicture(bookForInfoChange)==false" width="50px" height="50px" src={{bookForInfoChange.coverPicture}}>
+                    </div>
+                    <input type="file" accept="image/*" (change)="saveImage($event)">
+                
+                
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Zanrovi:</b></td>
+            <td>
+                <select multiple [(ngModel)]="genres">
+                    <option *ngFor="let g of allGenres" [value]="g">
+                      {{g}}
+                    </option>
+                </select>
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Autori:</b></td>
+            <td>
+                <input type="text" size="40" placeholder="Unesite autore odvojene zarezom bez razmaka" [(ngModel)]="author">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Kolicina:</b></td>
+            <td>
+                <input type="number" [(ngModel)]="amount"> 
+            </td>        
+        </tr>
+        
+        <tr>
+            
+            <td colspan="1" align="center">
+                <button  (click)="changeBookInfo()" class="button">Izmeni</button>
+            </td>       
+            <td colspan="1" align="center">
+                <button  (click)="back()" class="button">Nazad</button>
+            </td>    
+        </tr>
+    </table>
+    
+</div>
+
+<simple-notifications></simple-notifications>
+
+
+
+

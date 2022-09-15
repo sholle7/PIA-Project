@@ -1,0 +1,58 @@
+<div class="center">
+    <h1>Osnovne informacije</h1>
+    <table>
+        <tr>
+            <td><b>Korisnicko ime:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="username"> 
+            </td>
+        </tr>
+        <tr>
+            <td><b>Puno ime:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="fullName"> 
+            </td>
+        </tr>
+        <tr>
+            <td><b>Adresa:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="address"> 
+            </td>
+        </tr>
+        <tr>
+            <td><b>Email:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="email"> 
+            </td>
+        </tr>
+        <tr>
+            <td><b>Telefon:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="telephone"> 
+            </td>
+        </tr>
+
+        <tr>
+            <td><b>Slika:</b></td>
+            <td class="pics">
+                    <img *ngIf="hasDefaultPicture(user)==true" width="50px" height="50px" src="/assets/DefaultPicture.png">
+                    <img *ngIf="hasDefaultPicture(user)==false" width="50px" height="50px" src={{user.image}}>
+                <input type="file" accept=".jpg,.png" (change)="saveImage($event)" id="slika">
+            </td>        
+        </tr>
+
+        
+        <tr>
+            <td colspan="1" align="center">
+                <button (click)='changePersonalInfo()' class="button">Promeni</button>
+            </td>
+
+            
+            <td colspan="1" align="center">
+                <button (click)='back()' class="button">Nazad</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<simple-notifications></simple-notifications>

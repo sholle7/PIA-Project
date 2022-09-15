@@ -1,0 +1,78 @@
+<div class="center">
+    <h1>Forma za dodavanje korisnika</h1>
+
+    <table> 
+        <tr>
+            <td><b>Korisnicko ime:</b></td>
+            <td>
+                <input type="text" [(ngModel)]="username" id="korisnickoime"> 
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Lozinka:</b></td>
+            <td>
+                <input type="password" [(ngModel)]="password" id="lozinka">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Potvrda Lozinke:</b></td>
+            <td>
+                <input type="password" [(ngModel)]="repeatedPassword" id="potvrdalozinke">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Ime i prezime:</b></td>
+            <td>
+                <input type="text" [(ngModel)]="fullName" id="imeiprezime">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Adresa:</b></td>
+            <td>
+                <input type="text" [(ngModel)]="address" id="adresa">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Telefon:</b></td>
+            <td>
+                <input type="text" [(ngModel)]="telephone" id="telefon">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Email:</b></td>
+            <td>
+                <input type="text" [(ngModel)]="email" id="email"> 
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Tip:</b></td>
+            <td>
+                <select [(ngModel)]="type">
+                    <option>citalac</option>
+                    <option>moderator</option>
+                </select>
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Slika:</b></td>
+            <td>
+                <input type="file" accept=".jpg,.png" (change)="saveImage($event)" id="slika">
+            </td>        
+        </tr>
+        <tr>
+            
+            <td colspan="1" align="center">
+                <button  (click)="addUser()" class="button">Dodaj</button>
+            </td>       
+            <td colspan="1" align="center">
+                <button  (click)="back()" class="button">Nazad</button>
+            </td>    
+        </tr>
+    </table>
+    
+</div>
+
+<simple-notifications></simple-notifications>
+
+
+

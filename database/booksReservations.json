@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "62f14806c856feb2c2aea340"
+  },
+  "id": 1,
+  "idB": 3,
+  "idR": null,
+  "username": "luka",
+  "active": true
+},{
+  "_id": {
+    "$oid": "62f14827c856feb2c2aea342"
+  },
+  "id": 2,
+  "idB": 4,
+  "idR": null,
+  "username": "luka",
+  "active": true
+},{
+  "_id": {
+    "$oid": "62f14838c856feb2c2aea344"
+  },
+  "id": 3,
+  "idB": 4,
+  "idR": null,
+  "username": "pera",
+  "active": true
+}]

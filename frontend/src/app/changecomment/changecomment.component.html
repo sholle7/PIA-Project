@@ -1,0 +1,35 @@
+<div class="center">
+    <h1>Izmena Komentara</h1>
+    <table>
+        <tr>
+            <td><b>Ocena:</b></td>
+            <td>
+                <ngb-rating style="color:orange; font-size: 30px;" [max]="10" [min]="1" [(ngModel)]="rating">
+
+                </ngb-rating>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Tekst novog komentara:</b></td>
+            <td>
+                <textarea placeholder="Tekst novog komentara" maxlength="1000" rows="6" cols="80" required [(ngModel)]="comment"></textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+<div align="center">
+    <table>
+        <tr>
+            <td>                 
+                <button class="button" (click)="updateComment()">Izmeni Komentar</button>
+            </td>
+            <td>                 
+                <button class="button" (click)="back()">Nazad</button>
+            </td>
+           
+        </tr>
+    </table>
+</div>
+
+<simple-notifications></simple-notifications>
+

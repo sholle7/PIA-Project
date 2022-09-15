@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "62e98e9edb4a45f6ae21d2a3"
+  },
+  "id": 1,
+  "idB": 3,
+  "username": "mika",
+  "rating": 10,
+  "text": "Super knjiga",
+  "date": "2021-01-25",
+  "time": "10:20:10",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62ea84ba6adc320acdbcec37"
+  },
+  "id": 2,
+  "idB": 2,
+  "username": "luka",
+  "rating": 9,
+  "text": "Super knjiga",
+  "date": "2022-03-16",
+  "time": "10:20:10",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62ea84d26adc320acdbcec3d"
+  },
+  "id": 3,
+  "idB": 3,
+  "username": "pera",
+  "rating": 8,
+  "text": "Super knjiga",
+  "date": "2022-05-16",
+  "time": "10:20:10",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62ea84e86adc320acdbcec3f"
+  },
+  "id": 4,
+  "idB": 4,
+  "username": "luka",
+  "rating": 10,
+  "text": "Super knjiga",
+  "date": "2022-08-10",
+  "time": "22:48:45",
+  "isUpdated": true
+},{
+  "_id": {
+    "$oid": "62ec1f55a779cc6c72806195"
+  },
+  "id": 5,
+  "idB": 3,
+  "username": "isidora",
+  "rating": 5,
+  "text": "Ok knjiga",
+  "date": "2022-08-04",
+  "time": "21:34:20",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62ec2840a779cc6c7280619c"
+  },
+  "id": 6,
+  "idB": 4,
+  "username": "isidora",
+  "rating": 2,
+  "text": "Losa knjiga",
+  "date": "2022-08-01",
+  "time": "22:34:20",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62ec2917a779cc6c7280619e"
+  },
+  "id": 7,
+  "idB": 3,
+  "username": "luka",
+  "rating": 7,
+  "text": "Dobra knjiga",
+  "date": "2022-08-04",
+  "time": "23:34:20",
+  "isUpdated": false
+},{
+  "_id": {
+    "$oid": "62f03b59b40f142213772b0b"
+  },
+  "id": 8,
+  "idB": 4,
+  "username": "pera",
+  "rating": 10,
+  "text": "Dobra knjiga",
+  "date": "2022-07-08",
+  "time": "23:30:20",
+  "isUpdated": false
+}]

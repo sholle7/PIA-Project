@@ -1,0 +1,35 @@
+<div class="center">
+    <h1>Izmena broja dana za zaduzenje i produzenje knjiga</h1>
+    <table style="font-size: 20px;">
+        
+        <tr>
+            <td><b>Prethodni broj dana:</b></td>
+            <td>
+                <output>{{currentDays}}</output>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Novi broj dana:</b></td>
+            <td>
+                <input type="number" min="1" [(ngModel)]='days' required>
+            </td>
+        </tr>
+    </table>
+</div>
+<div align="center">
+    <table>
+        <tr>
+            <td>                 
+                <button class="button" (click)="updateDays()">Izmeni</button>
+            </td>
+            <td>                 
+                <button class="button" (click)="back()">Nazad</button>
+            </td>
+           
+        </tr>
+    </table>
+</div>
+
+<simple-notifications></simple-notifications>
+
+

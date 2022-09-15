@@ -1,0 +1,79 @@
+body{
+    margin:0; 
+    max-height: 50px !important;
+    position: fixed;
+    
+}
+
+.links {
+    max-height: 150px;
+    padding: 10px;
+    margin:0px;
+    max-width: 100% !important;
+    background-color: lightblue;
+}
+
+.links .right{
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    
+   
+    text-align: right !important;
+    margin-left: auto; 
+    margin-right: 0;   
+}
+.links .center{
+    display:flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.links .left{
+    display: flex;
+    justify-content: space-between;
+    max-width: 350px;
+    margin: 0px;
+    text-align: left !important;
+}
+.links .right .last {
+    position:absolute;
+    top: 10px; 
+    right: 10px;
+}
+.button {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #1fbc24;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 9px #999;
+}
+  
+.button:hover {
+    background-color: #3e8e41;
+}
+  
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+} 
+
+.links .center .image {   
+    margin: -20px -20px 0px 20px;
+    animation: rotateAroundYAxis 3.5s linear infinite;
+}
+
+@keyframes rotateAroundYAxis { 
+    100% {
+         transform: rotateY(360deg); 
+    } 
+}
+

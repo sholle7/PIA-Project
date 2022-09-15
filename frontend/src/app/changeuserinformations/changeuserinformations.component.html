@@ -1,0 +1,79 @@
+<div class="center">
+    <div class="info">
+        <p><strong>&nbsp;Info!</strong> Popunite samo polja koja zelite da promenite!&nbsp;</p>
+    </div>
+    <h1><b>Izmeni informacije o korisniku</b></h1>
+<table>
+   
+    
+        <tr>
+            <td><b>Korisnicko ime:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="username" id="korisnickoime"> 
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Lozinka:</b></td>
+            <td>
+                <input type="password" size="40" [(ngModel)]="password" id="lozinka">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Potvrda Lozinke:</b></td>
+            <td>
+                <input type="password" size="40" [(ngModel)]="repeatedPassword" id="potvrdalozinke">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Ime i prezime:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="fullName" id="imeiprezime">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Adresa:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="address" id="adresa">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Telefon:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="telephone" id="telefon">
+            </td>        
+        </tr>
+        <tr>
+            <td><b>Email:</b></td>
+            <td>
+                <input type="text" size="40" [(ngModel)]="email" id="email"> 
+            </td>        
+        </tr>
+        
+        <tr>
+            <td><b>Slika:</b></td>
+            <td class="pics">
+                <div *ngIf="user.type=='admin'">
+                    <img *ngIf="hasDefaultPicture(userForInfoChange)==true" width="50px" height="50px" src="/assets/DefaultPicture.png">
+                    <img *ngIf="hasDefaultPicture(userForInfoChange)==false" width="50px" height="50px" src={{userForInfoChange.image}}>
+                </div>
+                
+                <input type="file" accept=".jpg,.png" (change)="saveImage($event)" id="slika">
+            </td>        
+        </tr>
+        <tr>
+            
+            <td colspan="1" align="center">
+                <button  (click)="changeUser()" class="button">Izmeni</button>
+            </td>       
+            <td colspan="1" align="center">
+                <button  (click)="back()" class="button">Nazad</button>
+            </td>    
+        </tr>
+    </table>
+    
+</div>
+
+<simple-notifications></simple-notifications>
+
+
+
